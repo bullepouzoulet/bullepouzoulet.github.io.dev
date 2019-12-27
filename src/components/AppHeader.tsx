@@ -1,5 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {
+  Link,
+  useLocation
+} from 'react-router-dom'
 
 import Menu from '../commons/icons/Menu'
 
@@ -8,8 +11,7 @@ import './_app.css'
 
 interface AppHeaderLink {
   to: string,
-  text: string,
-  active: boolean
+  text: string
 }
 
 interface AppHeaderProps {
@@ -52,25 +54,10 @@ class AppHeader extends React.Component<AppHeaderProps, AppHeaderState> {
   }
 
   renderLink (link: AppHeaderLink) {
-    const {
-      to,
-      text,
-      active
-    } = link
-    let className = 'AppHeader-link'
-    if (active) {
-      className += ' AppHeader-link-active'
-    }
     return (
-      <div
-        key={to}
-        className='AppHeader-item'>
-        <Link
-          className={className}
-          to={to}>
-          {text}
-        </Link>
-      </div>
+      <AppHeaderLink
+        key={link.to}
+        {...link} />
     )
   }
 
@@ -79,25 +66,10 @@ class AppHeader extends React.Component<AppHeaderProps, AppHeaderState> {
   }
 
   renderMenuLink (link: AppHeaderLink) {
-    const {
-      to,
-      text,
-      active
-    } = link
-    let className = 'AppHeader-menu-link'
-    if (active) {
-      className += ' AppHeader-menu-link-active'
-    }
     return (
-      <li
-        key={to}
-        className='AppHeader-menu-item'>
-        <Link
-          className={className}
-          to={to}>
-          {text}
-        </Link>
-      </li>
+      <AppHeaderMenuLink
+        key={link.to}
+        {...link} />
     )
   }
 
@@ -133,6 +105,52 @@ class AppHeader extends React.Component<AppHeaderProps, AppHeaderState> {
 
     )
   }
+}
+
+function AppHeaderLink(props: AppHeaderLink) {
+  const {
+    to,
+    text
+  } = props
+  let className = 'AppHeader-link'
+  const location = useLocation()
+  if (location.pathname === to) {
+    className += ' AppHeader-link-active'
+  }
+  return (
+    <div
+      key={to}
+      className='AppHeader-item'>
+      <Link
+        className={className}
+        to={to}>
+        {text}
+      </Link>
+    </div>
+  )
+}
+
+function AppHeaderMenuLink(props: AppHeaderLink) {
+  const {
+    to,
+    text
+  } = props
+  let className = 'AppHeader-menu-link'
+  const location = useLocation()
+  if (location.pathname === to) {
+    className += ' AppHeader-menu-link-active'
+  }
+  return (
+    <li
+      key={to}
+      className='AppHeader-menu-item'>
+      <Link
+        className={className}
+        to={to}>
+        {text}
+      </Link>
+    </li>
+  )
 }
 
 export default AppHeader

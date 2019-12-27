@@ -12,13 +12,14 @@ interface AppProps {}
 interface AppState {}
 
 const links = [
-  { to: '/', text: 'Home', active: false },
-  { to: '/services', text: 'Services', active: false },
-  { to: '/projects', text: 'Projects', active: false },
-  { to: '/contact', text: 'Contact', active: false }
+  { to: '/', text: 'Home' },
+  { to: '/services', text: 'Services' },
+  { to: '/projects', text: 'Projects' },
+  { to: '/contact', text: 'Contact' }
 ]
 
 class App extends React.Component<AppProps, AppState> {
+
   render () {
     return (
       <Router>
