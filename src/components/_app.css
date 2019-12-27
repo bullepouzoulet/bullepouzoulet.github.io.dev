@@ -34,19 +34,53 @@
   display: none;
   align-items: center;
 }
-.AppHeader .AppHeader-menu {
+.AppHeader .AppHeader-menu-btn {
   border: 0;
   margin: 0;
   padding: 0;
   background: transparent;
+}
+.AppHeader .AppHeader-menu {
+  display: none;
+  z-index: 1;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+
+  color: black;
+  background: rgba(255,255,255,0.5);
+}
+
+.AppHeader .AppHeader-menu.AppHeader-menu-show {
+  display: block;
+}
+.AppHeader .AppHeader-menu .AppHeader-menu-list {
+  padding: 0;
+  margin: 0;
+}
+.AppHeader .AppHeader-menu .AppHeader-menu-item {
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+.AppHeader .AppHeader-menu .AppHeader-menu-item:hover {
+  background: lightgrey;
+}
+.AppHeader .AppHeader-menu .AppHeader-menu-item .AppHeader-menu-link {
+  color: black;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 640px) {
   .AppHeader .AppHeader-links {
     display: flex;
   }
-  .AppHeader .AppHeader-menu {
+  .AppHeader .AppHeader-menu-btn {
     display: none;
+  }
+  .AppHeader .AppHeader-menu {
+    display: none !important;
   }
 }
 
