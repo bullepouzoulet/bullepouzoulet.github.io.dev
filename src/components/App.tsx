@@ -1,24 +1,32 @@
 import React from 'react'
-import './App.css'
+import {
+  BrowserRouter as Router
+} from 'react-router-dom'
+
+import AppHeader from './AppHeader'
+import AppContent from './AppContent'
+
+import './_app.css'
 
 interface AppProps {}
 interface AppState {}
 
+const links = [
+  { to: '/', text: 'Home', active: false },
+  { to: '/services', text: 'Services', active: false },
+  { to: '/projects', text: 'Projects', active: false },
+  { to: '/contact', text: 'Contact', active: false }
+]
+
 class App extends React.Component<AppProps, AppState> {
   render () {
     return (
-      <div className='App'>
-        <header className='App-header'>
-          <span>Sustainable Systems</span>
-          <span className='App-header-item'>Home</span>
-        </header>
-        <div className='App-content'>
-          <div className='App-background' />
-          <h1>Sustainable <br /> Systems</h1>
-          <h2>Let's walk together towards a sustainable future</h2>
-          <h3>Site under construction - release planned 01/2020</h3>
+      <Router>
+        <div className='App'>
+          <AppHeader links={links} />
+          <AppContent />
         </div>
-      </div>
+      </Router>
     )
   }
 }

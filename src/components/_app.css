@@ -1,8 +1,10 @@
+/* App */
 .App {
   text-align: center;
 }
 
-.App-header {
+/* AppHeader */
+.AppHeader {
   position: absolute;
   top: 0;
   left: 0;
@@ -18,14 +20,38 @@
   align-items: center;
   justify-content: space-between;
 }
-.App-header span {
-  margin: 1rem;
+.AppHeader .AppHeader-item {
+  margin: 1rem
 }
-.App-header .App-header-item {
-  border-bottom: 2px solid black;
+.AppHeader .AppHeader-item .AppHeader-link {
+  color: initial;
+}
+.AppHeader .AppHeader-item .AppHeader-link:hover {
+  color: initial;
+  text-decoration: none;
+}
+.AppHeader .AppHeader-links {
+  display: none;
+  align-items: center;
+}
+.AppHeader .AppHeader-menu {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 
-.App-content {
+@media screen and (min-width: 640px) {
+  .AppHeader .AppHeader-links {
+    display: flex;
+  }
+  .AppHeader .AppHeader-menu {
+    display: none;
+  }
+}
+
+/* AppContent */
+.AppContent {
   position: absolute;
   top: 50px;
   left: 0;
@@ -40,7 +66,7 @@
   align-items: center;
   justify-content: center;
 }
-.App-content .App-background {
+.AppContent .AppContent-background {
   position: absolute;
   top: 0;
   left: 0;
@@ -54,14 +80,15 @@
   background-size: cover;
   background-position: center;
 }
-.App-content h1 {
+.AppContent h1 {
   font-size: 4rem;
   text-align: center;
 }
-.App-content h2 {
+.AppContent h2 {
   font-size: 2rem;
   text-align: center;
 }
-.App-content h3 {
+.AppContent h3 {
   margin-top: 10rem;
 }
+
