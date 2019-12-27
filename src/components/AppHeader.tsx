@@ -89,11 +89,14 @@ class AppHeader extends React.Component<AppHeaderProps, AppHeaderState> {
           className='AppHeader-links'>
           { this.renderLinks() }
         </div>
-        <button
-          className='AppHeader-menu-btn'
-          onClick={this.state.showMenu ? () => {} : this.onMenuPressed}>
-          <Menu />
-        </button>
+        <div className='AppHeader-menu-btn-container'>
+          <button
+            className='AppHeader-menu-btn'
+            onClick={this.onMenuPressed}>
+            <Menu />
+          </button>
+          <div className={this.state.showMenu ? 'AppHeader-menu-btn-mask' : ''} />
+        </div>
         <div
           className={this.state.showMenu ? 'AppHeader-menu AppHeader-menu-show' : 'AppHeader-menu'}>
           <ul
