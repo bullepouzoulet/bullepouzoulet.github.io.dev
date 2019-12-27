@@ -26,13 +26,25 @@ class AppHeader extends React.Component<AppHeaderProps, AppHeaderState> {
     this.state = {
       showMenu: false
     }
+    this.toggleMenuOff = this.toggleMenuOff.bind(this)
     this.onMenuPressed = this.onMenuPressed.bind(this)
   }
 
-  onMenuPressed () {
+  toggleMenuOff () {
+    document.body.removeEventListener('click', this.toggleMenuOff)
     this.setState({
-      showMenu: !this.state.showMenu
+      showMenu: false
     })
+  }
+
+  onMenuPressed () {
+    document.body.removeEventListener('click', this.toggleMenuOff)
+    if (!this.state.showMenu) {
+      document.body.addEventListener('click', this.toggleMenuOff)
+      this.setState({
+        showMenu: true
+      })
+    }
   }
 
   renderLinks () {
@@ -107,7 +119,7 @@ class AppHeader extends React.Component<AppHeaderProps, AppHeaderState> {
         </div>
         <button
           className='AppHeader-menu-btn'
-          onClick={this.onMenuPressed}>
+          onClick={this.state.showMenu ? () => {} : this.onMenuPressed}>
           <Menu />
         </button>
         <div
