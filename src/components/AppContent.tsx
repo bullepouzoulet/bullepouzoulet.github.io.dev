@@ -32,6 +32,7 @@ class AppContent extends React.Component<AppContentProps, AppContentState> {
             <Home />
           </Route>
         </Switch>
+        <div>Common Footer</div>
       </div>
     )
   }

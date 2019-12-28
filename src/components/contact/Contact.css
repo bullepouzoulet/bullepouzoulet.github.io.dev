@@ -1,4 +1,42 @@
 /* Contacts */
-.Contacts {
+.Contact {
+}
 
+.Contact .Contact-title {
+  font-size: 1.5rem;
+}
+
+.Contact .Contact-content {
+  margin: 2rem 0;
+}
+
+.Contact .Contact-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+.Contact .Contact-form .Contact-label {
+  width: 100%;
+  margin: 0;
+}
+.Contact .Contact-form .Contact-input,
+.Contact .Contact-form .Contact-textarea {
+  width: 100%;
+}
+
+.Contact .Contact-btn {
+  height: 3rem;
+  width:  calc(100% - 2rem);
+
+  border: 0;
+  border-radius: 1.5rem;
+
+  background-color: rgb(71,112,82);
+  color: white;
+}
+
+.Contact .Contact-btn:disabled {
+  background-color: lightgrey;
+  cursor: not-allowed;
 }
