@@ -1,0 +1,47 @@
+{
+  "app": {
+    "header": {
+      "title": "Sustainable Systems",
+      "links": {
+        "home": "Home",
+        "projects": "Projects",
+        "services": "Services",
+        "contact": "Contact"
+      }
+    }
+  },
+  "home": {
+    "section1": {
+      "title": "Let's walk together towards a sustainable future",
+      "subtitle": "Site under construction - release planned 01/2020"
+    },
+    "section2": {
+      "title": "home.section2.title",
+      "text": "home.section2.text"
+    },
+    "section3": {
+      "title": "home.section3.title",
+      "text": "home.section3.text"
+    },
+    "section4": {
+      "title": "home.section4.title",
+      "text": "home.section4.text"
+    }
+  },
+  "services": {
+    "title": "services.title"
+  },
+  "projects": {
+    "title": "projects.title"
+  },
+  "contact": {
+    "title": "contact.title",
+    "name": "contact.name",
+    "email": "contact.email",
+    "message": "contact.message",
+    "submit": "contact.submit"
+  },
+  "footer": {
+    "title": "footer.title"
+  }
+}

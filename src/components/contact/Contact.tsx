@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import './Contact.scss'
 
@@ -9,6 +10,8 @@ const Contact = (props: ContactProps) => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [isSent, setIsSent] = useState(false)
+
+  const { t } = useTranslation()
 
   const handleNameChanged = (event: React.FormEvent<HTMLInputElement>) => {
     setName(event.currentTarget.value)
@@ -27,7 +30,7 @@ const Contact = (props: ContactProps) => {
     <div className='Contact'>
       <h3
         className='Contact-title'>
-        Vous voulez en savoir plus ?
+        {t('contact.title')}
       </h3>
 
       <div
@@ -36,7 +39,7 @@ const Contact = (props: ContactProps) => {
         <ContactInput
           id='name'
           type='text'
-          text='Votre nom'
+          text={t('contact.name')}
           value={name}
           onChange={handleNameChanged}
         />
@@ -44,14 +47,14 @@ const Contact = (props: ContactProps) => {
         <ContactInput
           id='email'
           type='email'
-          text='Votre adresse email'
+          text={t('contact.email')}
           value={email}
           onChange={handleEmailChanged}
         />
 
         <ContactTextArea
           id='message'
-          text='Votre message'
+          text={t('contact.message')}
           value={message}
           onChange={handleMessageChanged}
         />
@@ -61,7 +64,7 @@ const Contact = (props: ContactProps) => {
       <button
         className='Contact-btn'
         disabled={submitDisabled}>
-        Envoyer
+        {t('contact.submit')}
       </button>
 
     </div>

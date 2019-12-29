@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useLocation} from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import Menu from '../commons/icons/Menu'
 
@@ -7,16 +8,24 @@ import './AppHeader.scss'
 
 interface AppHeaderLink {
   to: string,
-  text: string
+  id: string
 }
 
-interface AppHeaderProps {
-  links: AppHeaderLink[]
-}
+interface AppHeaderProps {}
+
+const links = [
+  { to: '/', id: 'home' },
+  { to: '/services', id: 'services' },
+  { to: '/projects', id: 'projects' },
+  { to: '/contact', id: 'contact' }
+]
 
 const AppHeader = (props: AppHeaderProps) => {
+  /* HOOKS */
   const [showMenu, setShowMenu] = useState(false)
+  const { t } = useTranslation()
 
+  /* CALLBACKS */
   const toggleMenuOff = () => {
     document.body.removeEventListener('click', toggleMenuOff)
     setShowMenu(false)
@@ -29,6 +38,8 @@ const AppHeader = (props: AppHeaderProps) => {
       setShowMenu(true)
     }
   }
+
+  /* RENDERING */
   return (
     <header
       className='AppHeader'>
@@ -37,12 +48,12 @@ const AppHeader = (props: AppHeaderProps) => {
         <Link
           className='AppHeader-link'
           to='/'>
-          Sustainable Systems
+          {t('app.header.title')}
         </Link>
       </div>
       <div
         className='AppHeader-links'>
-        { props.links.map((link) => <AppHeaderLink key={link.to} {...link} />) }
+        { links.map((link) => <AppHeaderLink key={link.to} {...link} />) }
       </div>
       <div className='AppHeader-menu-btn-container'>
         <button
@@ -56,7 +67,7 @@ const AppHeader = (props: AppHeaderProps) => {
         className={showMenu ? 'AppHeader-menu AppHeader-menu-show' : 'AppHeader-menu'}>
         <ul
           className='AppHeader-menu-list'>
-          { props.links.map((link) => <AppHeaderMenuLink key={link.to} {...link} />) }
+          { links.map((link) => <AppHeaderMenuLink key={link.to} {...link} />) }
         </ul>
       </div>
     </header>
@@ -64,9 +75,10 @@ const AppHeader = (props: AppHeaderProps) => {
 }
 
 function AppHeaderLink(props: AppHeaderLink) {
+  const { t } = useTranslation()
   const {
     to,
-    text
+    id
   } = props
   let className = 'AppHeader-link'
   const location = useLocation()
@@ -80,16 +92,17 @@ function AppHeaderLink(props: AppHeaderLink) {
       <Link
         className={className}
         to={to}>
-        {text}
+        {t(`app.header.links.${id}`)}
       </Link>
     </div>
   )
 }
 
 function AppHeaderMenuLink(props: AppHeaderLink) {
+  const { t } = useTranslation()
   const {
     to,
-    text
+    id
   } = props
   let className = 'AppHeader-menu-link'
   const location = useLocation()
@@ -103,7 +116,7 @@ function AppHeaderMenuLink(props: AppHeaderLink) {
       <Link
         className={className}
         to={to}>
-        {text}
+        {t(`app.header.links.${id}`)}
       </Link>
     </li>
   )

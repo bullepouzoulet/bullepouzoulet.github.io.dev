@@ -1,0 +1,47 @@
+{
+  "app": {
+    "header": {
+      "title": "Sustainable Systems",
+      "links": {
+        "home": "Accueil",
+        "projects": "Projets",
+        "services": "Services",
+        "contact": "Contact"
+      }
+    }
+  },
+  "home": {
+    "section1": {
+      "title": "Let's walk together towards a sustainable future",
+      "subtitle": "Site under construction - release planned 01/2020"
+    },
+    "section2": {
+      "title": "Vision / Approche / Mission",
+      "text": "Besoin d'une personne compétente et qualifiée pour vous accompagner dans la réalisation de votre projet ? Vous avez frappé à la bonne porte. Mon travail consiste à comprendre vos objectifs et à trouver la solution adaptée à vos besoins. Contactez-moi !"
+    },
+    "section3": {
+      "title": "Mes Services",
+      "text": "Je suis passionné par mon travail et cela n'est un secret pour personne. Ma plus grande satisfaction ? Pouvoir aider mes clients à réussir. Vous trouverez ici toutes les informations sur mes prestations et la façon dont je peux vous accompagner."
+    },
+    "section4": {
+      "title": "Portfolio",
+      "text": "Quand vous croyez en ce que vous faites, tout est possible. Si vous souhaitez avoir une idée de mes compétences, voici quelques exemples concrets de résultats que vous pouvez espérer atteindre en collaborant avec moi."
+    }
+  },
+  "services": {
+    "title": "Mes Services"
+  },
+  "projects": {
+    "title": "Mes Projets"
+  },
+  "contact": {
+    "title": "Vous voulez en savoir plus ?",
+    "name": "Votre nom",
+    "email": "Votre adresse email",
+    "message": "Votre message",
+    "submit": "Envoyer"
+  },
+  "footer": {
+    "title": "Bas de page par défault"
+  }
+}
