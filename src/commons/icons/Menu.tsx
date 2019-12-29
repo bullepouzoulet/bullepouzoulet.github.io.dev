@@ -1,19 +1,17 @@
 import React from 'react'
-import './Menu.css'
+import './Menu.scss'
 
 interface MenuProps {}
 interface MenuState {}
 
-class Menu extends React.Component<MenuProps, MenuState> {
-  render () {
-    return (
-      <div className='Menu'>
-        <div className='Menu-bar' />
-        <div className='Menu-bar' />
-        <div className='Menu-bar' />
-      </div>
-    )
-  }
+const Menu = (props: MenuProps) => {
+  return (
+    <div className='Menu'>
+      <div className='Menu-bar Menu-bar-top' />
+      <div className='Menu-bar Menu-bar-mid' />
+      <div className='Menu-bar Menu-bar-bot' />
+    </div>
+  )
 }
 
 export default Menu

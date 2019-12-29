@@ -7,7 +7,7 @@ import {
 import Menu from '../commons/icons/Menu'
 
 
-import './_app.css'
+import './AppHeader.scss'
 
 interface AppHeaderLink {
   to: string,
@@ -49,30 +49,6 @@ class AppHeader extends React.Component<AppHeaderProps, AppHeaderState> {
     }
   }
 
-  renderLinks () {
-    return this.props.links.map(this.renderLink)
-  }
-
-  renderLink (link: AppHeaderLink) {
-    return (
-      <AppHeaderLink
-        key={link.to}
-        {...link} />
-    )
-  }
-
-  renderMenuLinks () {
-    return this.props.links.map(this.renderMenuLink)
-  }
-
-  renderMenuLink (link: AppHeaderLink) {
-    return (
-      <AppHeaderMenuLink
-        key={link.to}
-        {...link} />
-    )
-  }
-
   render () {
     return (
       <header
@@ -87,7 +63,7 @@ class AppHeader extends React.Component<AppHeaderProps, AppHeaderState> {
         </div>
         <div
           className='AppHeader-links'>
-          { this.renderLinks() }
+          { this.props.links.map((link) => <AppHeaderLink key={link.to} {...link} />) }
         </div>
         <div className='AppHeader-menu-btn-container'>
           <button
@@ -101,7 +77,7 @@ class AppHeader extends React.Component<AppHeaderProps, AppHeaderState> {
           className={this.state.showMenu ? 'AppHeader-menu AppHeader-menu-show' : 'AppHeader-menu'}>
           <ul
             className='AppHeader-menu-list'>
-            { this.renderMenuLinks() }
+            { this.props.links.map((link) => <AppHeaderMenuLink key={link.to} {...link} />) }
           </ul>
         </div>
       </header>

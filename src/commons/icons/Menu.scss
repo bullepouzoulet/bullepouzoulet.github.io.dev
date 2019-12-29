@@ -7,11 +7,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-}
-
-.Menu .Menu-bar {
-  width: 100%;
-  border-top: 3px solid lightgrey;
-  border-bottom: 3px solid lightgrey;
-  border-radius: 6px;
+  .Menu-bar {
+    width: 100%;
+    border-top: 3px solid lightgrey;
+    border-bottom: 3px solid lightgrey;
+    border-radius: 6px;
+  }
 }

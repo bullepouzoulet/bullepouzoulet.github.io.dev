@@ -6,7 +6,7 @@ import {
 import AppHeader from './AppHeader'
 import AppContent from './AppContent'
 
-import './_app.css'
+import './App.scss'
 
 interface AppProps {}
 interface AppState {}

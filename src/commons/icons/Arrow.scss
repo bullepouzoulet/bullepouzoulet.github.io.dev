@@ -1,0 +1,40 @@
+.Arrow {
+  position: relative;
+  height: 6rem;
+  width: 6rem;
+
+  border: 8px solid white;
+  border-radius: 50%;
+
+  .Arrow-elem {
+    border: 4px solid white;
+    border-radius: 8px;
+
+    &.Arrow-main {
+      position: absolute;
+      top: 10%;
+      bottom: 10%;
+      left: calc(50% - 4px);
+    }
+
+    &.Arrow-ext1 {
+      position: absolute;
+      top: 35%;
+      bottom: 10%;
+      left: calc(50% - 4px);
+
+      transform: rotate(45deg) translateX(-30%);
+      transform-origin: 0 100%;
+    }
+
+    &.Arrow-ext2 {
+      position: absolute;
+      top: 35%;
+      bottom: 10%;
+      left: calc(50% - 4px);
+
+      transform: rotate(-45deg) translateX(30%);
+      transform-origin: 100% 100%;
+    }
+  }
+}

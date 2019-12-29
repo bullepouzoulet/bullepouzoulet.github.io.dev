@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Projects.css'
+import './Projects.scss'
 
 interface ProjectsProps {}
 interface ProjectsState {}

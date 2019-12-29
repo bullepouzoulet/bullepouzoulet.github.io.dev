@@ -9,33 +9,31 @@ import Services from './services/Services'
 import Projects from './projects/Projects'
 import Contact from './contact/Contact'
 
-import './_app.css'
+import './AppContent.scss'
 
 interface AppContentProps {}
 interface AppContentState {}
 
-class AppContent extends React.Component<AppContentProps, AppContentState> {
-  render () {
-    return (
-      <div className='AppContent'>
-        <Switch>
-          <Route path='/services'>
-            <Services />
-          </Route>
-          <Route path='/projects'>
-            <Projects />
-          </Route>
-          <Route path='/contact'>
-            <Contact />
-          </Route>
-          <Route path='/'>
-            <Home />
-          </Route>
-        </Switch>
-        <div>Common Footer</div>
-      </div>
-    )
-  }
+const AppContent = (props: AppContentProps) => {
+  return (
+    <div className='AppContent'>
+      <Switch>
+        <Route path='/services'>
+          <Services />
+        </Route>
+        <Route path='/projects'>
+          <Projects />
+        </Route>
+        <Route path='/contact'>
+          <Contact />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
+      </Switch>
+      <div>Common Footer</div>
+    </div>
+  )
 }
 
 export default AppContent

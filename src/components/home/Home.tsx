@@ -1,6 +1,7 @@
 import React from 'react'
 
-import './Home.css'
+import Arrow from '../../commons/icons/Arrow'
+import './Home.scss'
 
 interface HomeProps {}
 interface HomeState {}
@@ -20,6 +21,9 @@ class Home extends React.Component<HomeProps, HomeState> {
             <h1>Sustainable <br /> Systems</h1>
             <h2>Let's walk together towards a sustainable future</h2>
             <h3>Site under construction - release planned 01/2020</h3>
+            <div className='Home-page-bottom'>
+              <Arrow />
+            </div>
           </div>
         </div>
 
