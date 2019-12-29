@@ -23,12 +23,19 @@ const links = [
 const AppHeader = (props: AppHeaderProps) => {
   /* HOOKS */
   const [showMenu, setShowMenu] = useState(false)
-  const { t } = useTranslation()
+  const [lang, setLang] = useState('fr')
+  const { t, i18n } = useTranslation()
 
   /* CALLBACKS */
   const toggleMenuOff = () => {
     document.body.removeEventListener('click', toggleMenuOff)
     setShowMenu(false)
+  }
+
+  const onLangPressed = () => {
+    let nextLang = lang === 'fr' ? 'en' : 'fr'
+    setLang(nextLang)
+    i18n.changeLanguage(nextLang)
   }
 
   const onMenuPressed = () => {
@@ -44,12 +51,20 @@ const AppHeader = (props: AppHeaderProps) => {
     <header
       className='AppHeader'>
       <div
-        className='AppHeader-item'>
-        <Link
-          className='AppHeader-link'
-          to='/'>
-          {t('app.header.title')}
-        </Link>
+        className='AppHeader-area'>
+        <button
+          className='AppHeader-item AppHeader-item-lang'
+          onClick={onLangPressed}>
+          {lang.toUpperCase()}
+        </button>
+        <div
+          className='AppHeader-item'>
+          <Link
+            className='AppHeader-link'
+            to='/'>
+            {t('app.header.title')}
+          </Link>
+        </div>
       </div>
       <div
         className='AppHeader-links'>

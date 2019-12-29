@@ -18,8 +18,24 @@
   align-items: center;
   justify-content: space-between;
 
+  .AppHeader-area {
+    display: flex;
+    align-items: center;
+  }
+
   .AppHeader-item {
     margin: 1rem;
+
+    &.AppHeader-item-lang {
+      margin: 0;
+      height: 2rem;
+      border: 2px solid grey;
+      border-radius: 6px;
+      color: grey;
+      background: none;
+      font-weight: bold;
+      font-style: italic;
+    }
 
     .AppHeader-link {
       color: initial;
