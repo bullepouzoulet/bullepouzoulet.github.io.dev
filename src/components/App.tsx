@@ -9,7 +9,6 @@ import AppContent from './AppContent'
 import './App.scss'
 
 interface AppProps {}
-interface AppState {}
 
 const links = [
   { to: '/', text: 'Home' },
@@ -18,18 +17,15 @@ const links = [
   { to: '/contact', text: 'Contact' }
 ]
 
-class App extends React.Component<AppProps, AppState> {
-
-  render () {
-    return (
-      <Router>
-        <div className='App'>
-          <AppHeader links={links} />
-          <AppContent />
-        </div>
-      </Router>
-    )
-  }
+const App = (props: AppProps) => {
+  return (
+    <Router>
+      <div className='App'>
+        <AppHeader links={links} />
+        <AppContent />
+      </div>
+    </Router>
+  )
 }
 
 export default App

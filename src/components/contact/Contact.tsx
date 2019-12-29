@@ -1,13 +1,71 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './Contact.scss'
 
 interface ContactProps {}
-interface ContactState {
-  name: string,
-  email: string,
-  message: string,
-  sent: boolean
+
+const Contact = (props: ContactProps) => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [isSent, setIsSent] = useState(false)
+
+  const handleNameChanged = (event: React.FormEvent<HTMLInputElement>) => {
+    setName(event.currentTarget.value)
+  }
+
+  const handleEmailChanged = (event: React.FormEvent<HTMLInputElement>) => {
+    setEmail(event.currentTarget.value)
+  }
+
+  const handleMessageChanged = (event: React.FormEvent<HTMLTextAreaElement>) => {
+    setMessage(event.currentTarget.value)
+  }
+
+  const submitDisabled = !Boolean(name.trim()) || !Boolean(email.trim()) || !Boolean(message.trim())
+  return (
+    <div className='Contact'>
+      <h3
+        className='Contact-title'>
+        Vous voulez en savoir plus ?
+      </h3>
+
+      <div
+        className='Contact-content'>
+
+        <ContactInput
+          id='name'
+          type='text'
+          text='Votre nom'
+          value={name}
+          onChange={handleNameChanged}
+        />
+
+        <ContactInput
+          id='email'
+          type='email'
+          text='Votre adresse email'
+          value={email}
+          onChange={handleEmailChanged}
+        />
+
+        <ContactTextArea
+          id='message'
+          text='Votre message'
+          value={message}
+          onChange={handleMessageChanged}
+        />
+
+      </div>
+
+      <button
+        className='Contact-btn'
+        disabled={submitDisabled}>
+        Envoyer
+      </button>
+
+    </div>
+  )
 }
 
 interface ContactInputProps {
@@ -16,94 +74,6 @@ interface ContactInputProps {
   text: string,
   id: string,
   onChange: (event: React.FormEvent<HTMLInputElement>) => void
-}
-
-interface ContactTextAreaProps {
-  value: string,
-  text: string,
-  id: string,
-  onChange: (event: React.FormEvent<HTMLTextAreaElement>) => void
-}
-
-class Contact extends React.Component<ContactProps, ContactState> {
-  constructor (props: ContactProps) {
-    super(props)
-    this.state = {
-      name: '',
-      email: '',
-      message: '',
-      sent: false
-    }
-
-    this.handleNameChanged = this.handleNameChanged.bind(this)
-    this.handleEmailChanged = this.handleEmailChanged.bind(this)
-    this.handleMessageChanged = this.handleMessageChanged.bind(this)
-  }
-
-  handleNameChanged (event: React.FormEvent<HTMLInputElement>) {
-    this.setState({
-      name: event.currentTarget.value
-    })
-  }
-
-  handleEmailChanged (event: React.FormEvent<HTMLInputElement>) {
-    this.setState({
-      email: event.currentTarget.value
-    })
-  }
-
-  handleMessageChanged (event: React.FormEvent<HTMLTextAreaElement>) {
-    this.setState({
-      message: event.currentTarget.value
-    })
-  }
-
-  render () {
-    const submitDisabled = !Boolean(this.state.name.trim()) || !Boolean(this.state.email.trim()) || !Boolean(this.state.message.trim())
-    return (
-      <div className='Contact'>
-        <h3
-          className='Contact-title'>
-          Vous voulez en savoir plus ?
-        </h3>
-
-        <div
-          className='Contact-content'>
-
-          <ContactInput
-            id='name'
-            type='text'
-            text='Votre nom'
-            value={this.state.name}
-            onChange={this.handleNameChanged}
-          />
-
-          <ContactInput
-            id='email'
-            type='email'
-            text='Votre adresse email'
-            value={this.state.email}
-            onChange={this.handleEmailChanged}
-          />
-
-          <ContactTextArea
-            id='message'
-            text='Votre message'
-            value={this.state.message}
-            onChange={this.handleMessageChanged}
-          />
-
-        </div>
-
-        <button
-          className='Contact-btn'
-          disabled={submitDisabled}>
-          Envoyer
-        </button>
-
-      </div>
-    )
-  }
 }
 
 function ContactInput(props: ContactInputProps) {
@@ -133,6 +103,13 @@ function ContactInput(props: ContactInputProps) {
       </input>
     </div>
   )
+}
+
+interface ContactTextAreaProps {
+  value: string,
+  text: string,
+  id: string,
+  onChange: (event: React.FormEvent<HTMLTextAreaElement>) => void
 }
 
 function ContactTextArea(props: ContactTextAreaProps) {

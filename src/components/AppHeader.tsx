@@ -1,11 +1,7 @@
-import React from 'react'
-import {
-  Link,
-  useLocation
-} from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useLocation} from 'react-router-dom'
 
 import Menu from '../commons/icons/Menu'
-
 
 import './AppHeader.scss'
 
@@ -18,72 +14,53 @@ interface AppHeaderProps {
   links: AppHeaderLink[]
 }
 
-interface AppHeaderState {
-  showMenu: boolean;
-}
+const AppHeader = (props: AppHeaderProps) => {
+  const [showMenu, setShowMenu] = useState(false)
 
-class AppHeader extends React.Component<AppHeaderProps, AppHeaderState> {
-  constructor (props: AppHeaderProps) {
-    super(props)
-    this.state = {
-      showMenu: false
-    }
-    this.toggleMenuOff = this.toggleMenuOff.bind(this)
-    this.onMenuPressed = this.onMenuPressed.bind(this)
+  const toggleMenuOff = () => {
+    document.body.removeEventListener('click', toggleMenuOff)
+    setShowMenu(false)
   }
 
-  toggleMenuOff () {
-    document.body.removeEventListener('click', this.toggleMenuOff)
-    this.setState({
-      showMenu: false
-    })
-  }
-
-  onMenuPressed () {
-    document.body.removeEventListener('click', this.toggleMenuOff)
-    if (!this.state.showMenu) {
-      document.body.addEventListener('click', this.toggleMenuOff)
-      this.setState({
-        showMenu: true
-      })
+  const onMenuPressed = () => {
+    document.body.removeEventListener('click', toggleMenuOff)
+    if (!showMenu) {
+      document.body.addEventListener('click', toggleMenuOff)
+      setShowMenu(true)
     }
   }
-
-  render () {
-    return (
-      <header
-        className='AppHeader'>
-        <div
-          className='AppHeader-item'>
-          <Link
-            className='AppHeader-link'
-            to='/'>
-            Sustainable Systems
-          </Link>
-        </div>
-        <div
-          className='AppHeader-links'>
-          { this.props.links.map((link) => <AppHeaderLink key={link.to} {...link} />) }
-        </div>
-        <div className='AppHeader-menu-btn-container'>
-          <button
-            className='AppHeader-menu-btn'
-            onClick={this.onMenuPressed}>
-            <Menu />
-          </button>
-          <div className={this.state.showMenu ? 'AppHeader-menu-btn-mask' : ''} />
-        </div>
-        <div
-          className={this.state.showMenu ? 'AppHeader-menu AppHeader-menu-show' : 'AppHeader-menu'}>
-          <ul
-            className='AppHeader-menu-list'>
-            { this.props.links.map((link) => <AppHeaderMenuLink key={link.to} {...link} />) }
-          </ul>
-        </div>
-      </header>
-
-    )
-  }
+  return (
+    <header
+      className='AppHeader'>
+      <div
+        className='AppHeader-item'>
+        <Link
+          className='AppHeader-link'
+          to='/'>
+          Sustainable Systems
+        </Link>
+      </div>
+      <div
+        className='AppHeader-links'>
+        { props.links.map((link) => <AppHeaderLink key={link.to} {...link} />) }
+      </div>
+      <div className='AppHeader-menu-btn-container'>
+        <button
+          className='AppHeader-menu-btn'
+          onClick={onMenuPressed}>
+          <Menu />
+        </button>
+        <div className={showMenu ? 'AppHeader-menu-btn-mask' : ''} />
+      </div>
+      <div
+        className={showMenu ? 'AppHeader-menu AppHeader-menu-show' : 'AppHeader-menu'}>
+        <ul
+          className='AppHeader-menu-list'>
+          { props.links.map((link) => <AppHeaderMenuLink key={link.to} {...link} />) }
+        </ul>
+      </div>
+    </header>
+  )
 }
 
 function AppHeaderLink(props: AppHeaderLink) {
