@@ -39,7 +39,10 @@
     "name": "contact.name",
     "email": "contact.email",
     "message": "contact.message",
-    "submit": "contact.submit"
+    "submit": "contact.submit",
+    "sending": "contact.sending",
+    "sent": "contant.sent",
+    "error": "contant.error"
   },
   "footer": {
     "title": "footer.title"

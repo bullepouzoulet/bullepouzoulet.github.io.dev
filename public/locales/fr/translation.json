@@ -39,7 +39,10 @@
     "name": "Votre nom",
     "email": "Votre adresse email",
     "message": "Votre message",
-    "submit": "Envoyer"
+    "submit": "Envoyer",
+    "sending": "Envoie en cours",
+    "sent": "Email envoyé !",
+    "error": "Erreur lors de l'envoie"
   },
   "footer": {
     "title": "Bas de page par défault"
