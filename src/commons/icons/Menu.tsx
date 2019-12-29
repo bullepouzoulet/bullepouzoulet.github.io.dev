@@ -2,7 +2,6 @@ import React from 'react'
 import './Menu.scss'
 
 interface MenuProps {}
-interface MenuState {}
 
 const Menu = (props: MenuProps) => {
   return (

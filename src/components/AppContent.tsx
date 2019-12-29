@@ -8,11 +8,11 @@ import Home from './home/Home'
 import Services from './services/Services'
 import Projects from './projects/Projects'
 import Contact from './contact/Contact'
+import AppFooter from './AppFooter'
 
 import './AppContent.scss'
 
 interface AppContentProps {}
-interface AppContentState {}
 
 const AppContent = (props: AppContentProps) => {
   return (
@@ -31,7 +31,7 @@ const AppContent = (props: AppContentProps) => {
           <Home />
         </Route>
       </Switch>
-      <div>Common Footer</div>
+      <AppFooter />
     </div>
   )
 }

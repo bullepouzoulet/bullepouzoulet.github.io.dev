@@ -2,7 +2,6 @@ import React from 'react'
 import './Arrow.scss'
 
 interface ArrowProps {}
-interface ArrowState {}
 
 const Arrow = (props: ArrowProps) => {
   return (
