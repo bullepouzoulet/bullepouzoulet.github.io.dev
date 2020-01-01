@@ -1,4 +1,45 @@
+@import '../../variables';
+
 .Projects {
   height: 100%;
   width: 100%;
+
+  .ProjectSection {
+    position: relative;
+    height: 100%;
+
+    &.ProjectSection-even {
+      background: $color-main;
+      color: white;
+    }
+
+    .ProjectSection-area  {
+
+      &.ProjectSection-text {
+        padding: 2rem;
+        height: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .ProjectSection-text-title {
+
+        }
+        .ProjectSection-text-content {
+
+        }
+      }
+
+      &.ProjectSection-background {
+        height: 55%;
+        .ProjectSection-image {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+  }
 }

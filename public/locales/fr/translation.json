@@ -32,7 +32,18 @@
     "title": "Mes Services"
   },
   "projects": {
-    "title": "Mes Projets"
+    "project1": {
+      "title": "European Roudtable for Beef Sustainability",
+      "text": "Grâce à mon expérience, mon sérieux et mon approche orientée résultat, j'ai eu la chance de travailler avec de nombreux clients d'exception."
+    },
+    "project2": {
+      "title": "Résilience et biodiversité",
+      "text": "Voici le premier texte que vos visiteurs vont voir en arrivant sur votre site web. Décrivez ici votre projet à l’aide d’une phrase courte ou d’un slogan."
+    },
+    "project3": {
+      "title": "Lavande et Agroforesterie",
+      "text": "Il est toujours plus facile de faire du bon travail lorsque l'on croit en ce que l'on fait. C'est la raison pour laquelle je m'engage à aider davantage de personnes, jour après jour."
+    }
   },
   "contact": {
     "title": "Vous voulez en savoir plus ?",

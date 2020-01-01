@@ -32,7 +32,18 @@
     "title": "services.title"
   },
   "projects": {
-    "title": "projects.title"
+    "project1": {
+      "title": "projects.project1.title",
+      "text": "projects.project1.text"
+    },
+    "project2": {
+      "title": "projects.project2.title",
+      "text": "projects.project2.text"
+    },
+    "project3": {
+      "title": "projects.project3.title",
+      "text": "projects.project3.text"
+    }
   },
   "contact": {
     "title": "contact.title",
