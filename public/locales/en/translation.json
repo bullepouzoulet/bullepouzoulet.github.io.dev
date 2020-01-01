@@ -29,7 +29,19 @@
     }
   },
   "services": {
-    "title": "services.title"
+    "title": "services.title",
+    "service1": {
+      "title": "services.service1.title",
+      "text": "services.service1.text"
+    },
+    "service2": {
+      "title": "services.service2.title",
+      "text": "services.service2.text"
+    },
+    "service3": {
+      "title": "services.service3.title",
+      "text": "services.service3.text"
+    }
   },
   "projects": {
     "project1": {

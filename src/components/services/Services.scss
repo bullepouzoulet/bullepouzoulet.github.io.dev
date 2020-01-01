@@ -1,4 +1,56 @@
+@import '../../variables';
+
 .Services {
-  height: 100%;
-  width: 100%;
+  height: auto;
+  .Services-sections {
+    .ServiceSection {
+      .ServiceSection-area-background {
+        height: 40vh;
+        .ServiceSection-image {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          &.contains {
+            object-fit: contain;
+          }
+        }
+      }
+      .ServiceSection-area-text {
+        .ServiceSection-text-title {
+          margin: 2rem;
+          margin-bottom: 0;
+        }
+        .ServiceSection-text-content {
+          margin: 2rem;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-size-s) {
+  .Services {
+    .Services-sections {
+      justify-content: space-around;
+      display: flex;
+      .ServiceSection {
+        width: 30%;
+        .ServiceSection-area-background {
+
+          .ServiceSection-image {
+
+          }
+        }
+        .ServiceSection-area-text {
+          .ServiceSection-text-title {
+
+          }
+          .ServiceSection-text-content {
+
+          }
+        }
+      }
+    }
+  }
 }
