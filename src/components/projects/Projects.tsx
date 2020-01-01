@@ -26,7 +26,7 @@ interface ProjectsProps {}
 const Projects = (props: ProjectsProps) => {
   return (
     <div className='Projects'>
-      { PROJECTS.map((project, index) => <ProjectSection {...project} even={index % 2 !== 0} />)}
+      { PROJECTS.map((project, index) => <ProjectSection key={`project-${index}`} {...project} even={index % 2 !== 0} />)}
     </div>
   )
 }

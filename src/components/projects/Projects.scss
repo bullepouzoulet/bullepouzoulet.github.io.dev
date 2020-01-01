@@ -1,12 +1,12 @@
 @import '../../variables';
 
 .Projects {
-  height: 100%;
-  width: 100%;
+  height: auto;
 
   .ProjectSection {
     position: relative;
-    height: 100%;
+    height: calc(100vh - 50px);
+    overflow: hidden;
 
     &.ProjectSection-even {
       background: $color-main;
@@ -16,7 +16,6 @@
     .ProjectSection-area  {
 
       &.ProjectSection-text {
-        padding: 2rem;
         height: 45%;
         display: flex;
         flex-direction: column;
@@ -24,10 +23,10 @@
         justify-content: center;
 
         .ProjectSection-text-title {
-
+          margin: 0 2rem;
         }
         .ProjectSection-text-content {
-
+          margin: 2rem;
         }
       }
 
@@ -40,6 +39,33 @@
         }
       }
     }
+  }
+}
 
+@media screen and (min-width: $screen-size-s) {
+  .Projects {
+    .ProjectSection {
+      height: 50vh;
+      display: flex;
+      .ProjectSection-area  {
+        &.ProjectSection-text,
+        &.ProjectSection-background {
+          height: 100%;
+          width: 50%;
+        }
+      }
+      &.ProjectSection-even {
+        .ProjectSection-area.ProjectSection-text {
+          position: absolute;
+          right: 0;
+          left: 50%;
+        }
+        .ProjectSection-area.ProjectSection-background {
+          position: absolute;
+          left: 0;
+          right: 50%;
+        }
+      }
+    }
   }
 }
