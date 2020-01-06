@@ -10,7 +10,21 @@ const AppFooter = (props: AppFooterProps) => {
 
   return (
     <div className='AppFooter'>
-      {t('footer.title')}
+      <div>
+        {t('footer.title')}
+      </div>
+      <div>
+        {t('footer.legal')}
+      </div>
+      <div>
+        {t('footer.copyright')}
+      </div>
+      <div>
+        {t('footer.bulle')}
+      </div>
+      <div>
+        {t('footer.site')}
+      </div>
     </div>
   )
 }

@@ -5,12 +5,14 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 50px;
+  height: 49px;
+
+  background: white;
+  color: black;
 
   z-index: 2;
 
-  background: white !important;
-  color: black !important;
+  border-bottom: 1px solid lightgrey;
 
   padding: 0 2rem;
 

@@ -1,16 +1,33 @@
+@import './icons.scss';
+
+$menu-width: 2px;
+
 .Menu {
   height: 2rem;
   width: 2rem;
-  padding: 2px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+
   .Menu-bar {
-    width: 100%;
-    border-top: 3px solid lightgrey;
-    border-bottom: 3px solid lightgrey;
-    border-radius: 6px;
+    width: calc(100% - 8px);
+    border: $menu-width solid $ap-icon-color-default;
+    border-radius: $menu-width;
+    &.Menu-bar-mid {
+      margin: 4px 0;
+    }
+  }
+
+  &.ap-icon-color-main {
+    .Menu-bar {
+      border-color: $ap-icon-color-main;
+    }
+  }
+  &.ap-icon-color-secondary {
+    .Menu-bar {
+      border-color: $ap-icon-color-secondary;
+    }
   }
 }
