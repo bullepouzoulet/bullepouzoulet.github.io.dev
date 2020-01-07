@@ -72,6 +72,10 @@
       margin: 0;
       padding: 0;
       background: transparent;
+
+      &:focus {
+        outline: none;
+      }
     }
 
     .AppHeader-menu-btn-mask {

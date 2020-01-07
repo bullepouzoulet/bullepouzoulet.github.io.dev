@@ -21,12 +21,15 @@ const links = [
 ]
 
 const AppHeader = (props: AppHeaderProps) => {
+
   /* HOOKS */
+
   const [showMenu, setShowMenu] = useState(false)
   const [lang, setLang] = useState('fr')
   const { t, i18n } = useTranslation()
 
   /* CALLBACKS */
+
   const toggleMenuOff = () => {
     document.body.removeEventListener('click', toggleMenuOff)
     setShowMenu(false)
