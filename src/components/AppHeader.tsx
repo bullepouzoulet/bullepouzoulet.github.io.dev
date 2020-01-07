@@ -75,7 +75,7 @@ const AppHeader = (props: AppHeaderProps) => {
         <button
           className='AppHeader-menu-btn'
           onClick={onMenuPressed}>
-          <Menu />
+          <Menu pressed={showMenu} />
         </button>
         <div className={showMenu ? 'AppHeader-menu-btn-mask' : ''} />
       </div>
