@@ -68,6 +68,10 @@
     "error": "contant.error"
   },
   "footer": {
-    "title": "footer.title"
+    "title": "footer.title",
+    "legal": "footer.legal",
+    "copyright": "footer.copyright",
+    "bulle": "footer.bulle",
+    "site": "footer.site"
   }
 }

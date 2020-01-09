@@ -1,3 +1,9 @@
-.AppFooter {
+@import '../variables';
 
+.AppFooter {
+  font-size: 0.9rem;
+  padding: 2rem 0;
+
+  background: rgb(50, 50 ,50);
+  color: lightgrey;
 }

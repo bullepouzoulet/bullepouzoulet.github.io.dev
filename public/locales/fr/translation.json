@@ -68,6 +68,10 @@
     "error": "Erreur lors de l'envoie"
   },
   "footer": {
-    "title": "Bas de page par défault"
+    "title": "Titre du footer",
+    "legal": "Mentions légales",
+    "copyright": "Copyright",
+    "bulle": "Bulle Pouzoulet",
+    "site": "ash-uncover"
   }
 }

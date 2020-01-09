@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useLocation} from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-import Menu from '../commons/icons/Menu'
+import { Menu } from '../commons/icons'
 
 import './AppHeader.scss'
 
@@ -21,12 +21,15 @@ const links = [
 ]
 
 const AppHeader = (props: AppHeaderProps) => {
+
   /* HOOKS */
+
   const [showMenu, setShowMenu] = useState(false)
   const [lang, setLang] = useState('fr')
   const { t, i18n } = useTranslation()
 
   /* CALLBACKS */
+
   const toggleMenuOff = () => {
     document.body.removeEventListener('click', toggleMenuOff)
     setShowMenu(false)
@@ -47,6 +50,7 @@ const AppHeader = (props: AppHeaderProps) => {
   }
 
   /* RENDERING */
+
   return (
     <header
       className='AppHeader'>
@@ -74,7 +78,7 @@ const AppHeader = (props: AppHeaderProps) => {
         <button
           className='AppHeader-menu-btn'
           onClick={onMenuPressed}>
-          <Menu />
+          <Menu pressed={showMenu} />
         </button>
         <div className={showMenu ? 'AppHeader-menu-btn-mask' : ''} />
       </div>

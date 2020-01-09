@@ -1,16 +1,73 @@
+@import './icons.scss';
+
+$menu-width: 2px;
+
 .Menu {
   height: 2rem;
   width: 2rem;
-  padding: 2px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+
+  cursor: pointer;
+
+  .Menu-bar-top {
+    margin-bottom: 4px;
+  }
+
+  .Menu-bar-bot {
+    margin-top: 4px;
+  }
+
   .Menu-bar {
-    width: 100%;
-    border-top: 3px solid lightgrey;
-    border-bottom: 3px solid lightgrey;
-    border-radius: 6px;
+    width: calc(100% - 8px);
+    border: $menu-width solid $ap-icon-color-default;
+    border-radius: $menu-width;
+
+    transition: transform 0.25s, opacity 0.25s;
+    transition-timing-function: ease-in-out;
+  }
+
+  .Menu-bar-mid {
+    position: relative;
+    border: $menu-width solid transparent;
+
+    width: calc(100% - 8px);
+
+    .Menu-bar {
+      position: absolute;
+      top: -$menu-width;
+      width: 100%;
+      left: -$menu-width;
+    }
+  }
+
+
+
+  &.ap-icon-color-main {
+    .Menu-bar {
+      border-color: $ap-icon-color-main;
+    }
+  }
+  &.ap-icon-color-secondary {
+    .Menu-bar {
+      border-color: $ap-icon-color-secondary;
+    }
+  }
+
+  &.Menu-pressed {
+    .Menu-bar {
+      &.Menu-bar-top, &.Menu-bar-bot {
+        opacity: 0;
+      }
+      &.Menu-bar-mid-1 {
+        transform: rotate(45deg);
+      }
+      &.Menu-bar-mid-2 {
+        transform: rotate(-45deg);
+      }
+    }
   }
 }
