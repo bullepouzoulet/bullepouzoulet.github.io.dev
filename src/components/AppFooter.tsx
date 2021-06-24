@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 import './AppFooter.scss'
@@ -14,7 +15,11 @@ const AppFooter = (props: AppFooterProps) => {
         {t('footer.title')}
       </div>
       <div>
-        {t('footer.legal')}
+        <Link
+          className='AppFooter-link'
+          to='/legal'>
+          {t('footer.legal')}
+        </Link>
       </div>
       <div>
         {t('footer.copyright')}

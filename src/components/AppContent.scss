@@ -11,4 +11,10 @@
   overflow-x: hidden;
 
   color: $color-main;
+  background: lightgrey;
+
+  .container {
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+  }
 }

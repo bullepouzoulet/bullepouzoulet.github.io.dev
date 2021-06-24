@@ -23,6 +23,7 @@ $menu-width: 2px;
 
   .Menu-bar {
     width: calc(100% - 8px);
+    background: $ap-icon-color-default;
     border: $menu-width solid $ap-icon-color-default;
     border-radius: $menu-width;
 
@@ -43,8 +44,6 @@ $menu-width: 2px;
       left: -$menu-width;
     }
   }
-
-
 
   &.ap-icon-color-main {
     .Menu-bar {

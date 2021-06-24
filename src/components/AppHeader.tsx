@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import { Link, useLocation} from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { Actions } from '../store'
 
 import { Menu } from '../commons/icons'
 
@@ -25,8 +28,13 @@ const AppHeader = (props: AppHeaderProps) => {
   /* HOOKS */
 
   const [showMenu, setShowMenu] = useState(false)
-  const [lang, setLang] = useState('fr')
   const { t, i18n } = useTranslation()
+
+  const selector = (state: any) => {
+    return state.lang
+  }
+  const lang = useSelector(selector)
+  const dispatch = useDispatch()
 
   /* CALLBACKS */
 
@@ -36,8 +44,8 @@ const AppHeader = (props: AppHeaderProps) => {
   }
 
   const onLangPressed = () => {
-    let nextLang = lang === 'fr' ? 'en' : 'fr'
-    setLang(nextLang)
+    const nextLang = lang === 'fr' ? 'en' : 'fr'
+    dispatch(Actions.langChange(nextLang))
     i18n.changeLanguage(nextLang)
   }
 
@@ -54,40 +62,44 @@ const AppHeader = (props: AppHeaderProps) => {
   return (
     <header
       className='AppHeader'>
-      <div
-        className='AppHeader-area'>
-        <button
-          className='AppHeader-item AppHeader-item-lang'
-          onClick={onLangPressed}>
-          {lang.toUpperCase()}
-        </button>
-        <div
-          className='AppHeader-item'>
-          <Link
-            className='AppHeader-link'
-            to='/'>
-            {t('app.header.title')}
-          </Link>
+      <div className='container'>
+        <div className='AppHeader-content'>
+          <div
+            className='AppHeader-area'>
+            <button
+              className='AppHeader-item AppHeader-item-lang'
+              onClick={onLangPressed}>
+              {lang.toUpperCase()}
+            </button>
+            <div
+              className='AppHeader-item'>
+              <Link
+                className='AppHeader-link'
+                to='/'>
+                {t('app.header.title')}
+              </Link>
+            </div>
+          </div>
+          <div
+            className='AppHeader-links'>
+            { links.map((link) => <AppHeaderLink key={link.to} {...link} />) }
+          </div>
+          <div className='AppHeader-menu-btn-container'>
+            <button
+              className='AppHeader-menu-btn'
+              onClick={onMenuPressed}>
+              <Menu pressed={showMenu} />
+            </button>
+            <div className={showMenu ? 'AppHeader-menu-btn-mask' : ''} />
+          </div>
+          <div
+            className={showMenu ? 'AppHeader-menu AppHeader-menu-show' : 'AppHeader-menu'}>
+            <ul
+              className='AppHeader-menu-list'>
+              { links.map((link) => <AppHeaderMenuLink key={link.to} {...link} />) }
+            </ul>
+          </div>
         </div>
-      </div>
-      <div
-        className='AppHeader-links'>
-        { links.map((link) => <AppHeaderLink key={link.to} {...link} />) }
-      </div>
-      <div className='AppHeader-menu-btn-container'>
-        <button
-          className='AppHeader-menu-btn'
-          onClick={onMenuPressed}>
-          <Menu pressed={showMenu} />
-        </button>
-        <div className={showMenu ? 'AppHeader-menu-btn-mask' : ''} />
-      </div>
-      <div
-        className={showMenu ? 'AppHeader-menu AppHeader-menu-show' : 'AppHeader-menu'}>
-        <ul
-          className='AppHeader-menu-list'>
-          { links.map((link) => <AppHeaderMenuLink key={link.to} {...link} />) }
-        </ul>
       </div>
     </header>
   )

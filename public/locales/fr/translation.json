@@ -67,6 +67,9 @@
     "sent": "Email envoyé !",
     "error": "Erreur lors de l'envoie"
   },
+  "legal": {
+    "title": "Mentions légales"
+  },
   "footer": {
     "title": "Titre du footer",
     "legal": "Mentions légales",

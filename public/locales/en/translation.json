@@ -67,6 +67,9 @@
     "sent": "contant.sent",
     "error": "contant.error"
   },
+  "legal": {
+    "title": "legal.title"
+  },
   "footer": {
     "title": "footer.title",
     "legal": "footer.legal",

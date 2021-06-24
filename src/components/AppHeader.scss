@@ -14,115 +14,119 @@
 
   border-bottom: 1px solid lightgrey;
 
-  padding: 0 2rem;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  .AppHeader-area {
+  .AppHeader-content {
     display: flex;
     align-items: center;
-  }
 
-  .AppHeader-item {
-    margin: 1rem;
-
-    &.AppHeader-item-lang {
-      margin: 0;
-      height: 2rem;
-      border: 2px solid grey;
-      border-radius: 6px;
-      color: grey;
-      background: none;
-      font-weight: bold;
-      font-style: italic;
+    .AppHeader-area {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
     }
 
-    .AppHeader-link {
-      color: initial;
-      text-decoration: none;
+    .AppHeader-item {
+      margin: 1rem;
 
-      &.AppHeader-link-active {
-        color: $color-main;
-        border-bottom: 2px solid $color-main;
+      &.AppHeader-item-lang {
+        margin: 0;
+        height: 2rem;
+        border: 2px solid grey;
+        border-radius: 6px;
+        color: grey;
+        background: none;
+        font-weight: bold;
+        font-style: italic;
       }
-    }
-  }
 
-  .AppHeader-links {
-    display: none;
-    align-items: center;
-  }
-
-  .AppHeader-menu-btn-container {
-    position: relative;
-    height: 2rem;
-    width: 2rem;
-    cursor: pointer;
-
-    .AppHeader-menu-btn {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      border: 0;
-      margin: 0;
-      padding: 0;
-      background: transparent;
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    .AppHeader-menu-btn-mask {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-  }
-
-  .AppHeader-menu {
-    display: none;
-
-    position: fixed;
-    top: 50px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    color: black;
-    background: rgba(255,255,255,0.85);
-
-    &.AppHeader-menu-show {
-      display: block;
-    }
-
-    .AppHeader-menu-list {
-      padding: 0;
-      margin: 0;
-    }
-
-    .AppHeader-menu-item {
-      .AppHeader-menu-link {
-        display: block;
-        color: black;
+      .AppHeader-link {
+        color: initial;
         text-decoration: none;
-        padding: 0.5rem 0;
-        transition: background-color 0.25s;
 
-        &:hover {
-          background-color: lightgrey;
-        }
-
-        &.AppHeader-menu-link-active {
+        &.AppHeader-link-active {
           color: $color-main;
-          font-weight: bold;
+          border-bottom: 2px solid $color-main;
+        }
+      }
+    }
+
+    .AppHeader-links {
+      display: none;
+      align-items: center;
+    }
+
+    .AppHeader-menu-btn-container {
+      position: relative;
+      height: 2rem;
+      width: 2rem;
+      cursor: pointer;
+
+      .AppHeader-menu-btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        border: 0;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .AppHeader-menu-btn-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    .AppHeader-menu {
+      display: none;
+
+      position: fixed;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      color: black;
+      background: rgba(255,255,255,0.85);
+
+      &.AppHeader-menu-show {
+        display: block;
+      }
+
+      .AppHeader-menu-list {
+        padding: 0;
+        margin: 0;
+      }
+
+      .AppHeader-menu-item {
+        .AppHeader-menu-link {
+          display: block;
+          color: black;
+          text-decoration: none;
+          padding: 0.5rem 0;
+          transition: background-color 0.25s;
+
+          &:hover {
+            background-color: lightgrey;
+          }
+
+          &.AppHeader-menu-link-active {
+            color: $color-main;
+            font-weight: bold;
+          }
         }
       }
     }
@@ -131,14 +135,16 @@
 
 @media screen and (min-width: $screen-size-medium) {
   .AppHeader {
-    .AppHeader-links {
-      display: flex;
-    }
-    .AppHeader-menu-btn-container {
-      display: none;
-    }
-    .AppHeader-menu {
-      display: none !important;
+    .AppHeader-content {
+      .AppHeader-links {
+        display: flex;
+      }
+      .AppHeader-menu-btn-container {
+        display: none;
+      }
+      .AppHeader-menu {
+        display: none !important;
+      }
     }
   }
 }
